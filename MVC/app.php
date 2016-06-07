@@ -1,6 +1,7 @@
 <?php
 
 class App{
+    //VEM DA URL
     private $met, $clazz;
     
     public function __construct($met,$clazz){
@@ -11,6 +12,15 @@ class App{
     public function startApp(){
         $clazzName = ucfirst($this->clazz) . "Controller";
         $modelName = ucfirst($this->clazz) . "Model";
+        if($modelName == "LoginModel"){
+           require_once "model/UsuarioModel.php";
+           require_once "model/UsuarioDAO.php";
+        }else{
+            if($modelName !== "HomeModel"){
+                require_once "model/" . $modelName . ".php";
+                require_once "model/" . ucfirst($this->clazz) . "DAO.php";    
+            }
+        }
         require_once "controller/Controller.php";
         require_once "controller/" . $clazzName . ".php";
         $hc = new $clazzName();
