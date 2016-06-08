@@ -22,7 +22,7 @@
 	</p>
 	 
 	 <div class="content">
-     <a href="https://webapp-saiyadin.c9users.io/usuario/logout" class="botao01">Logout</a>
+     <a href="https://webapp-saiyadin.c9users.io/login/logout" class="botao01">Logout</a>
     </div>
 
 	</div>
