@@ -7,16 +7,8 @@ class UsuarioDAO{
             return "Falha no MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
         
-        $stmt = $mysqli->prepare("INSERT INTO usuario(nome,email,senha,dtnasci,cpf,tel,celular,cep,estado,cidade,rua,bairro,num,complemento) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        //Mudar aqui de acordo com a aula de seguranca
-        
-        $stmt->bind_param("ssssssssssssss",$u->getNome(),$u->getEmail(),$u->getSenha(),$u->getDtnasci(),$u->getCpf(),$u->getTel(),$u->getCelular(),$u->getCep(),$u->getEstado(),$u->getCidade(),$u->getRua(),$u->getBairro(),$u->getNum(),$u->getComplemento());
-       
-        if($senha){
-             $hash = password_hash ($senha, PASSWORD_DEFAULT);
-            insert ($hash);
-        }
-           //----------------------------------------------
+        $stmt = $mysqli->prepare("INSERT INTO usuario(nome,email,senha,dtnasci,cpf,tel,cep,estado,cidade,rua,bairro,num,complemento) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+       $stmt->bind_param("sssssssssssss",$u->getNome(),$u->getEmail(),$u->getSenha(),$u->getDtnasci(),$u->getCpf(),$u->getTel(),$u->getCep(),$u->getEstado(),$u->getCidade(),$u->getRua(),$u->getBairro(),$u->getNum(),$u->getComplemento());
         if (!$stmt->execute()) {
             return "Erro: (" . $stmt->errno . ") " . $stmt->error . "<br>";
         }
@@ -29,9 +21,9 @@ class UsuarioDAO{
         $stmt = $mysqli->prepare("SELECT * FROM usuario WHERE id=?");
         $stmt->bind_param("i",$id);
         $stmt->execute();
-        $stmt->bind_result($id,$nome, $email, $senha,$dtnasci,$cpf,$tel,$celular,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
+        $stmt->bind_result($id,$nome, $email, $senha,$dtnasci,$cpf,$tel,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
         $stmt->fetch();
-        $usuario = new Usuario($id,$nome,$email,$senha,$dtnasci,$cpf,$tel,$celular,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
+        $usuario = new Usuario($id,$nome,$email,$senha,$dtnasci,$cpf,$tel,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
         return $usuario;
     }
     

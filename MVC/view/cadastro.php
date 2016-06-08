@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
  <style>
     <?php include 'static/teste.css'; ?>
-    <?php include 'static/validacao.js'; ?>
  </style>
+
 </head>
 <body>
 <main>
@@ -14,16 +14,16 @@
 	<h1> Cadastro </h1>
 	<table>
 	<div id="divCenter">
-	<form action="/usuario/inserir" method="POST"  onsubmit="return validarCPF;">
+	<form action="/usuario/inserir" method="POST"  >
 	
 	<tr>
 	<th><label for="nome">Nome: </label></th>
-    <td><input type="text" name="nome" maxlength="50" required/><br></td> 
+    <td><input type="text" name="nome"  maxlength="50" required/><br></td> 
 	</tr>
 	
 	<tr>
 	<th><label for="email">Email: </label></th>
-    <td><input type="email" name="email" maxlength="50" required/><br></td> 
+    <td><input type="email" name="email"  maxlength="50" required/><br></td> 
     </tr>
     
     <tr>
@@ -33,27 +33,22 @@
     
     <tr>
 	<th><label for="dtnasci">Data de Nascimento: </label></th>
-    <td><input type="date" name="dtnasci" onKeyPress="MascaraData(form1.data)" required onBlur= "ValidaDataform1.data"/><br></td> 
+    <td><input type="date" name="dtnasci"  required /><br></td> 
     </tr>
 
 	<tr>
 	<th><label for="cpf">CPF:  </label></th>
-	<td><input type="text" name="cpf" onSubmit="validarCPF()"  maxlength="14" required  /><br></td> 
+	<td><input type="text" name="cpf" maxlength="15" required/><br></td> 
 	</tr>
 
     <tr>
 	<th><label for="tel">Telefone </label></th>
-    <td><input type="text" name="tel" onKeyPress="MascaraTelefone(form1.tel)" maxlength="14" onBlur="ValidaTelefone(form1.tel)"/><br></td> 
+    <td><input type="number" name="tel"  maxlength="14" required><br></td> 
     </tr>
 
 	<tr>
-	<th><label for="celular">Celular: </label></th>
-	<td><input type="text" name="celular" onKeyPress="MascaraTelefone(form1.tel)"   maxlength="14"  onBlur="ValidaTelefone(form1.tel)"/><br></td> 
-	</tr>
-
-	<tr>
 	<th><label for="cep">CEP: </label></th>
-    <td><input type="text" name="cep" onKeyPress="MascaraCep(form1.cep)" maxlength="10" required onBlur="ValidaCep(form1.cep)"/><br></td> 
+    <td><input type="number" name="cep" id="cep"  maxlength="10"  required/><br></td> 
 	</tr>
 
 	<tr>
@@ -96,7 +91,7 @@
 
 	<tr>
 	<th><label for="rua">Rua: </label></th>
-    <td><input type="text" name="rua"  maxlength="20" required/><br></td> 
+    <td><input type="text" name="rua" maxlength="20" required/><br></td> 
 	</tr>
 	
 	<tr>
@@ -106,12 +101,12 @@
    
     <tr>
     <th><label for="num">Número: </label></th>
-    <td> <input type="number" name="num" maxlength="10" required/><br></td> 
+    <td> <input type="number" name="num"  maxlength="10" required/><br></td> 
     </tr>
     
     <tr>
     <th><label for="complemento">Complemento: </label></th>
-    <td> <input type="text" name="complemento" maxlength="20" /><br></td> 
+    <td> <input type="text" name="complemento"  maxlength="20" /><br></td> 
     </tr>
     
     </table>

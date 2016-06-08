@@ -25,6 +25,10 @@
         <td><label><a href="https://webapp-saiyadin.c9users.io/produto/informacao/1" >Jogo</a></label></td></tr>
         
         </table>
+        
+        <center>
+        <a href="https://webapp-saiyadin.c9users.io/usuario/perfil/2" >Voltar ao Perfil</a>
+        </center>	
         	
     </main>
     </body>

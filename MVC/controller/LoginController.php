@@ -21,6 +21,7 @@ class LoginController extends Controller{
         $um = new usuarioDAO();
         $email = $_POST["email"];
         $senha = $_POST["senha"];
+     
         $ehLoginCorreto = $um->authUser($email,$senha);
         if($ehLoginCorreto === false){
             echo"usuario e senha incorretos";

@@ -8,11 +8,8 @@ class UsuarioController extends Controller{
     
     public function perfil(){
         $id = $_GET["arg0"];
-        //PEGANDO DADOS DO MODEL
         $userDao = new UsuarioDAO();
         $usuario = $userDao->getUsuario($id);
-        // -----------------------------
-        // MANDANDO PARA VIEW
         $dado["nome"] = $usuario->getNome();
         $dado["email"] = $usuario->getEmail();
         $this->view->interpolar("perfil",$dado);
@@ -37,7 +34,6 @@ class UsuarioController extends Controller{
         $dtnasci = $_POST ["dtnasci"];
         $cpf = $_POST ["cpf"];
         $tel = $_POST ["tel"];
-        $celular = $_POST ["celular"];
         $cep = $_POST ["cep"];
         $estado = $_POST ["estado"];
         $cidade = $_POST ["cidade"];
@@ -45,13 +41,9 @@ class UsuarioController extends Controller{
         $bairro = $_POST ["bairro"];
         $num = $_POST ["num"];
         $complemento = $_POST["complemento"];
-        
-       
-        $usuario = new Usuario(0,$nome,$email,$senha,$dtnasci,$cpf,$tel,$celular,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
-        
+
+        $usuario = new Usuario(0,$nome,$email,$senha,$dtnasci,$cpf,$tel,$cep,$estado,$cidade,$rua,$bairro,$num,$complemento);
         $userDao = new UsuarioDAO();
-        
-        
         $ret = $userDao->insert($usuario);
         if($ret === ""){
             header("Location: /usuario/sucesso");    

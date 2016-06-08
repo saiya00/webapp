@@ -8,11 +8,9 @@ class ProdutoController extends Controller{
     // /produto/informacao
     public function informacao(){
         $id = $_GET["arg0"];
-        //PEGANDO DADOS DO MODEL
         $proDao = new produtoDAO();
         $prod = $proDao->getProduto($id);
-        // -----------------------------
-        // MANDANDO PARA VIEW
+        
         $dado´["id"] =$prod->getId;
         $dado["nome"] = $prod->getNome();
         $dado["valor"] = $prod->getValor();
@@ -25,12 +23,17 @@ class ProdutoController extends Controller{
         $dado["jogador"] = $prod->getJogador();
         $dado["lancamento"] = $prod->getLancamento();
         $dado["online"] = $prod->getOnline();
+        
         $this->view->interpolar("informacao",$dado);
         
-        // ------------------------------
-        
+     
     }
+
+    public function lista(){
+        $p = new ProdutoDAO();
+        $todosProds = $p->getProducts();
+        $this->view->interpolar("lista",$todosProds);
     
 }
-
+}
 ?>
