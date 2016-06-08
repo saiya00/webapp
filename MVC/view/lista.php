@@ -27,7 +27,7 @@
         </table>
         
         <center>
-        <a href="https://webapp-saiyadin.c9users.io/usuario/perfil/2" >Voltar ao Perfil</a>
+        <a href="https://webapp-saiyadin.c9users.io/usuario/perfil" >Voltar ao Perfil</a>
         </center>	
         	
     </main>

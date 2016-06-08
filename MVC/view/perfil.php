@@ -16,8 +16,14 @@
 	<h2> Bem vindo <?= $dado["nome"] ?> </h2>
 	
 	
-	<a href="https://webapp-saiyadin.c9users.io/produto/lista" > Lista dos jogos </a>
+
 	
+	<a href="https://webapp-saiyadin.c9users.io/produto/lista" >Ver a lista de jogos</a>
+	</p>
+	 
+	 <div class="content">
+     <a href="https://webapp-saiyadin.c9users.io/usuario/logout" class="botao01">Logout</a>
+    </div>
 
 	</div>
 	

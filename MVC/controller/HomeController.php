@@ -6,10 +6,6 @@ class HomeController extends Controller{
         $this->view->renderizar("erro");
     }
    
-    public function inicial(){
-        $this->view->renderizar("home");
-        $_SESSION["_OI"] = "Ola";
-    }
     
   
 }

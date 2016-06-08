@@ -10,7 +10,7 @@ abstract class Controller{
     
     public function estaAutorizado(){
         if(!isset($_SESSION["_ID"]))
-             header("Location: /login/formulario");
+             header("Location: /usuario/perfil");
     }
 }
 

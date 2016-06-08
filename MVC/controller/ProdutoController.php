@@ -5,7 +5,7 @@ class ProdutoController extends Controller{
     public function __call($m,$a){
         $this->view->renderizar("erro");
     }
-    // /produto/informacao
+    
     public function informacao(){
         $id = $_GET["arg0"];
         $proDao = new produtoDAO();
