@@ -1,1 +1,0 @@
-Entra na pasta que eu quero que vá a imagem no bash, e da pwd ( copia e cola isso no HomeController "$dir" )
