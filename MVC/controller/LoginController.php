@@ -21,8 +21,15 @@ class LoginController extends Controller{
         $um = new usuarioDAO();
         $email = $_POST["email"];
         $senha = $_POST["senha"];
+        
+                $options = [
+             'cost' => 11,
+             'salt' => '$abd$opklp$%sd6579$108&19',
+        ];
+        $senhaHash =  password_hash($senha, PASSWORD_BCRYPT, $options);
+
      
-        $ehLoginCorreto = $um->authUser($email,$senha);
+        $ehLoginCorreto = $um->authUser($email,$senhaHash);
         if($ehLoginCorreto === false){
             echo"usuario e senha incorretos";
             header("Location: /usuario/login");
