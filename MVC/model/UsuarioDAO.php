@@ -8,7 +8,14 @@ class UsuarioDAO{
         }
         
         $stmt = $mysqli->prepare("INSERT INTO usuario(nome,email,senha,dtnasci,cpf,tel,cep,estado,cidade,rua,bairro,num,complemento) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-       $stmt->bind_param("sssssssssssss",$u->getNome(),$u->getEmail(),$u->getSenha(),$u->getDtnasci(),$u->getCpf(),$u->getTel(),$u->getCep(),$u->getEstado(),$u->getCidade(),$u->getRua(),$u->getBairro(),$u->getNum(),$u->getComplemento());
+        $options = [
+             'cost' => 11,
+             'salt' => '$abd$opklp$%sd6579$108&19',
+             ];
+             
+        $hash =  password_hash($u->getSenha(), PASSWORD_BCRYPT, $options);
+
+        $stmt->bind_param("sssssssssssss",$u->getNome(),$u->getEmail(),$hash,$u->getDtnasci(),$u->getCpf(),$u->getTel(),$u->getCep(),$u->getEstado(),$u->getCidade(),$u->getRua(),$u->getBairro(),$u->getNum(),$u->getComplemento());
         if (!$stmt->execute()) {
             return "Erro: (" . $stmt->errno . ") " . $stmt->error . "<br>";
         }
