@@ -1,7 +1,7 @@
 <?php
 
 class App{
-    //VEM DA URL
+    
     private $met, $clazz;
     
     public function __construct($met,$clazz){

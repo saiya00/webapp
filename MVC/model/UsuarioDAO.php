@@ -42,11 +42,10 @@ class UsuarioDAO{
         $stmt->bind_result($id);
         $stmt->fetch();
         if($id > 0){
-            //ACHEI O USUARIO E O LOGIN E SENHA
-            //ESTAO CORRETAS
+           
             return $id;
         }else{
-            //USUARIO OU SENHA INVALIDOS
+            
             return false;
         }
     }

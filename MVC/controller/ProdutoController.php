@@ -11,7 +11,7 @@ class ProdutoController extends Controller{
         $proDao = new produtoDAO();
         $prod = $proDao->getProduto($id);
         
-        $dado´["id"] =$prod->getId;
+        $dado["id"] =$prod->getId;
         $dado["nome"] = $prod->getNome();
         $dado["valor"] = $prod->getValor();
         $dado["estoque"] = $prod->getEstoque();

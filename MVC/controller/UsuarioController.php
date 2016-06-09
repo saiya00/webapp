@@ -23,6 +23,7 @@ class UsuarioController extends Controller{
     }
     
       public function login(){
+        unset($_SESSION["_ID"]);
         $this->view->renderizar("login");
     }
 

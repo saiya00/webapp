@@ -11,11 +11,7 @@ class LoginController extends Controller{
         unset($_SESSION["_ID"]);
         $this->view->renderizar("logout");
     }
-    
-    public function entrar(){
-        unset($_SESSION["_ID"]);
-        $this->view->renderizar("login");
-    }
+   
     
     public function autenticar(){
         $um = new usuarioDAO();
